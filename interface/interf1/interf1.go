@@ -7,7 +7,6 @@ import (
 type Animal interface {
 	move()
 }
-
 type Human struct {
 	i int
 }
@@ -21,11 +20,11 @@ type Bird struct {
 	i int
 }
 
+//receiver为指针，所以三次调用后，输出值累加
 func (r *Bird) move() {
 	fmt.Println("鸟类行走")
 	r.i++
 }
-
 func moveTest1(animal Animal) {
 	animal.move()
 }
@@ -41,16 +40,21 @@ func main() {
 	moveTest1(h1)
 	moveTest1(h1)
 	moveTest1(h1)
-	fmt.Println(h1.i)
-
+	fmt.Println(h1.i) //0
 	fmt.Println("----------------")
 
 	h2 := &Human{0}
 	moveTest1(h2)
 	moveTest1(h2)
 	moveTest1(h2)
-	fmt.Println(h2.i)
+	fmt.Println(h2.i) //0
+	fmt.Println("----------------")
 
+	b2 := &Bird{0}
+	moveTest1(b2)
+	moveTest1(b2)
+	moveTest1(b2)
+	fmt.Println(b2.i) //3
 	fmt.Println("----------------")
 
 	//  h3 := Human{0}
@@ -59,7 +63,7 @@ func main() {
 	//  moveTest2(h3)
 	//  fmt.Println(h3.i)
 	//
-	//  fmt.Println("----------------")
+	//  fmt.Println("-------如上报错---------")
 
 	//  b1 := Bird{0}
 	//  moveTest1(b1)
@@ -67,15 +71,7 @@ func main() {
 	//  moveTest1(b1)
 	//  fmt.Println(b1.i)
 	//
-	//  fmt.Println("----------------")
-
-	b2 := &Bird{0}
-	moveTest1(b2)
-	moveTest1(b2)
-	moveTest1(b2)
-	fmt.Println(b2.i)
-
-	fmt.Println("----------------")
+	//  fmt.Println("--------如上报错--------")
 
 	//  b3 := &Bird{0}
 	//  moveTest2(b3)
@@ -83,6 +79,5 @@ func main() {
 	//  moveTest2(b3)
 	//  fmt.Println(b3.i)
 	//
-	//  fmt.Println("----------------")
+	//  fmt.Println("-------如上报错---------")
 }
-

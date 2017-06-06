@@ -5,7 +5,6 @@ import (
 )
 
 func main() {
-
 	//无参数直接加括号
 	func() int {
 		var i int = 5
@@ -24,5 +23,4 @@ func main() {
 		return 5
 	}
 	a() //func 3
-
 }
