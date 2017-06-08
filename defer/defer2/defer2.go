@@ -3,7 +3,7 @@ package main
 import "fmt"
 import "time"
 
-/** 达到try finally 哪样准确的Close
+/** 如何达到try finally 哪样准确的Close --》在另一个函数or匿名函数中调用
 jack Closed !!!
 lily Closed !!!
 Done !
