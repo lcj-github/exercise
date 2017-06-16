@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-//1). 使用 type 和 struct 定义结构体  2). 结构体中类型声明和普通的一致，先写名字，再写类型
+//1). 使用 type 和 struct 定义结构体
+//2). 结构体中类型声明和普通的一致，先写名字，再写类型
 type Vertex struct {
 	X int
 	Y int
